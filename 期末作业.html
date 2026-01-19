@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>世界咖啡文化 · Vintage Coffee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== 高级复古  风格 ===== -->
+  <style>
+    :root{
+      --bg:#0e0e0f;
+      --card:#1a1a1c;
+      --text:#e6e6e6;
+      --sub:#b5b5b5;
+      --gold:#c7a86a;
+      --glass:rgba(255,255,255,0.15);
+      --blur:blur(20px);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:"SF Pro Display","PingFang SC",sans-serif;
+      background:linear-gradient(180deg,#0b0b0c,#141416);
+      color:var(--text);
+      line-height:1.7;
+    }
+    a{text-decoration:none;color:inherit;}
+    section{padding:100px 8%;}
+    h1,h2,h3{font-weight:600;letter-spacing:1px;}
+    h2{font-size:36px;margin-bottom:40px;}
+
+    /* ===== 液态玻璃导航栏 ===== */
+    nav{
+      position:fixed;top:20px;left:50%;transform:translateX(-50%);
+      width:85%;
+      backdrop-filter:var(--blur);
+      background:var(--glass);
+      border-radius:24px;
+      padding:14px 40px;
+      display:flex;justify-content:space-between;align-items:center;
+      z-index:1000;
+    }
+    nav ul{display:flex;gap:28px;list-style:none;}
+    nav li{font-size:14px;color:#eee;opacity:.85;cursor:pointer;}
+    nav li:hover{color:var(--gold);}
+
+    /* ===== Hero ===== */
+    .hero{
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      background:url("https://images.unsplash.com/photo-1509042239860-f550ce710b93") center/cover no-repeat;
+    }
+    .hero .glass{
+      backdrop-filter:var(--blur);
+      background:rgba(0,0,0,.45);
+      padding:80px 100px;
+      border-radius:32px;
+    }
+    .hero h1{font-size:56px;margin-bottom:20px;}
+    .hero p{color:var(--sub);font-size:18px;}
+
+    /* ===== 时间轴 ===== */
+    .timeline{position:relative;max-width:900px;margin:auto;}
+    .timeline::before{
+      content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:#333;
+    }
+    .event{
+      width:45%;padding:30px;background:var(--card);border-radius:20px;
+      position:relative;margin:40px 0;cursor:pointer;transition:.4s;
+    }
+    .event:hover{transform:translateY(-6px);}
+    .event.left{left:0;}
+    .event.right{left:55%;}
+    .event::after{
+      content:"";position:absolute;top:40px;width:14px;height:14px;background:var(--gold);border-radius:50%;
+    }
+    .event.left::after{right:-38px;}
+    .event.right::after{left:-38px;}
+
+    /* ===== 世界地图 ===== */
+    .map{display:flex;gap:50px;align-items:center;}
+    .map img{width:55%;border-radius:24px;}
+    .map .list{flex:1;}
+    .map h3{color:var(--gold);margin-top:20px;}
+
+    /* ===== 咖啡种类 ===== */
+    .coffee-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;
+    }
+    .coffee{
+      background:var(--card);padding:30px;border-radius:24px;text-align:center;
+      transition:.4s;
+    }
+    .coffee:hover{transform:translateY(-8px);}
+    .coffee h3{margin-bottom:12px;color:var(--gold);}
+    .coffee p{color:var(--sub);font-size:14px;}
+
+    /* ===== 过程 ===== */
+    .process{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px;}
+    .step{background:var(--card);padding:26px;border-radius:22px;}
+    .step h3{color:var(--gold);margin-bottom:10px;}
+
+    /* ===== 中国咖啡 ===== */
+    .china{display:grid;grid-template-columns:1fr 1fr;gap:80px;}
+    .china h3{color:var(--gold);margin-bottom:16px;}
+
+    footer{text-align:center;padding:60px;color:#777;}
+  </style>
+</head>
+<body>
+
+<!-- ===== 导航 ===== -->
+<nav>
+  <strong>Vintage Coffee</strong>
+  <ul>
+    <li onclick="scrollToId('history')">历史</li>
+    <li onclick="scrollToId('world')">世界产区</li>
+    <li onclick="scrollToId('types')">咖啡种类</li>
+    <li onclick="scrollToId('process')">制作过程</li>
+    <li onclick="scrollToId('china')">中国咖啡</li>
+  </ul>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="glass">
+    <h1>世界咖啡文化</h1>
+    <p>从一粒种子，到一杯风味</p>
+  </div>
+</section>
+
+<!-- ===== 历史时间轴 ===== -->
+<section id="history">
+  <h2>咖啡的历史与文化</h2>
+  <div class="timeline">
+    <div class="event left"><h3>9世纪 · 非洲</h3><p>咖啡起源于埃塞俄比亚高原。</p></div>
+    <div class="event right"><h3>15世纪 · 阿拉伯</h3><p>咖啡在也门发展为饮品。</p></div>
+    <div class="event left"><h3>17世纪 · 欧洲</h3><p>咖啡馆成为思想交流中心。</p></div>
+    <div class="event right"><h3>19世纪 · 美洲</h3><p>咖啡种植规模化发展。</p></div>
+  </div>
+</section>
+
+<!-- ===== 世界地图 & 产区 ===== -->
+<section id="world">
+  <h2>世界咖啡产区</h2>
+  <div class="map">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" />
+    <div class="list">
+      <h3>非洲</h3><p>埃塞俄比亚 · 肯尼亚</p>
+      <h3>亚洲</h3><p>印尼 · 越南 · 中国云南</p>
+      <h3>欧洲</h3><p>意式拼配文化</p>
+      <h3>美洲</h3><p>巴西 · 哥伦比亚 · 哥斯达黎加</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 咖啡种类 10种 ===== -->
+<section id="types">
+  <h2>经典咖啡种类</h2>
+  <div class="coffee-grid">
+    <div class="coffee"><h3>意式浓缩</h3><p>Espresso 是所有意式咖啡的基础，通过高压在短时间内萃取而成，风味浓烈，油脂丰富，集中体现咖啡豆本身的香气与口感层次。</p></div>
+    <div class="coffee"><h3>美式咖啡</h3><p>在意式浓缩基础上加入热水制成，口感更加清爽顺滑，苦味降低，更适合长时间饮用，是北美地区最常见的咖啡形式。</p></div>
+    <div class="coffee"><h3>拿铁</h3><p>由浓缩咖啡与大量热牛奶组成，奶香浓郁、口感柔和，非常适合初次接触咖啡的人群，也是咖啡馆中最受欢迎的经典款式之一。</p></div>
+    <div class="coffee"><h3>卡布奇诺</h3><p>强调咖啡、牛奶与奶泡的平衡比例，表层厚实绵密的奶泡带来丰富口感，常搭配可可粉或肉桂粉，具有浓厚的意式风情。</p></div>
+    <div class="coffee"><h3>摩卡</h3><p>在咖啡与牛奶中加入巧克力元素，使整体风味更加甜美浓郁，兼具咖啡的苦与巧克力的甜，深受年轻群体喜爱。</p></div>
+    <div class="coffee"><h3>玛奇朵</h3><p>以浓缩咖啡为主体，仅加入少量奶泡进行“点缀”，保留强烈咖啡风味的同时略带柔和口感，名字意为“被标记的咖啡”。</p></div>
+    <div class="coffee"><h3>馥芮白</h3><p>源自澳洲的咖啡风格，使用细腻绵密的微奶泡，强调咖啡与牛奶的融合感，口感顺滑，咖啡风味更加突出。</p></div>
+    <div class="coffee"><h3>冷萃</h3><p>采用冷水长时间萃取咖啡粉，酸度低、苦味柔和，口感清甜顺滑，特别适合夏季饮用，也能更好地展现豆子的原始风味。</p></div>
+    <div class="coffee"><h3>爱尔兰咖啡</h3><p>将热咖啡与爱尔兰威士忌结合，并在顶部覆盖奶油，兼具酒香与咖啡香，是兼顾饮品与甜点属性的经典调制咖啡。</p></div>
+    <div class="coffee"><h3>维也纳咖啡</h3><p>以浓缩咖啡为基底，顶部覆盖厚厚的鲜奶油，用奶油代替牛奶，口感醇厚丝滑，具有浓厚的欧洲传统咖啡馆风格。</p></div>
+  </div>
+</section>
+
+<!-- ===== 制作过程 ===== -->
+<section id="process">
+  <h2>从种子到咖啡</h2>
+  <div class="process">
+    <div class="step"><h3>种植</h3><p>咖啡树生长3-5年。</p></div>
+    <div class="step"><h3>采摘</h3><p>人工精选成熟果实。</p></div>
+    <div class="step"><h3>处理</h3><p>日晒 / 水洗。</p></div>
+    <div class="step"><h3>烘焙</h3><p>决定风味。</p></div>
+    <div class="step"><h3>冲煮</h3><p>释放香气。</p></div>
+  </div>
+</section>
+
+<!-- ===== 中国咖啡 ===== -->
+<section id="china">
+  <h2>中国咖啡文化的发展</h2>
+  <p style="max-width:900px;margin:0 auto 60px;color:#b5b5b5;text-align:center;">
+    中国咖啡文化起步较晚，但发展迅速。从边陲种植实验到如今城市精品咖啡浪潮，中国逐渐形成了独具特色的咖啡生态。
+  </p>
+
+  <div class="timeline">
+    <div class="event left">
+      <h3>19世纪末</h3>
+      <p>法国传教士将咖啡引入云南，开启中国咖啡种植历史。</p>
+    </div>
+
+    <div class="event right">
+      <h3>1950s-1980s</h3>
+      <p>云南开始规模化试种咖啡，主要用于出口与拼配。</p>
+    </div>
+
+    <div class="event left">
+      <h3>1990s</h3>
+      <p>国际品牌进入中国市场，咖啡逐渐走入城市生活。</p>
+    </div>
+
+    <div class="event right">
+      <h3>2010s</h3>
+      <p>精品咖啡兴起，本土烘焙品牌与独立咖啡馆快速增长。</p>
+    </div>
+
+    <div class="event left">
+      <h3>2020s</h3>
+      <p>中国咖啡进入多元化时代，云南精品豆获得国际认可。</p>
+    </div>
+  </div>
+
+  <div style="margin-top:120px;">
+    <h3 style="color:var(--gold);text-align:center;margin-bottom:60px;">中国咖啡豆主要产地</h3>
+
+    <div class="timeline" style="margin-bottom:140px;">
+      <div class="event left">
+        <h3>云南 · 普洱</h3>
+        <p>中国最重要的咖啡核心产区之一，种植历史悠久，风味均衡，常带有坚果与巧克力香气。</p>
+      </div>
+      <div class="event right">
+        <h3>云南 · 保山</h3>
+        <p>高海拔山区产地，酸质明亮干净，是中国精品咖啡的重要代表产区。</p>
+      </div>
+      <div class="event left">
+        <h3>云南 · 德宏</h3>
+        <p>以稳定产量著称，多用于商业拼配，同时近年来也开始发展精品化路线。</p>
+      </div>
+      <div class="event right">
+        <h3>云南 · 临沧</h3>
+        <p>新兴咖啡产区，具有花果香与清爽口感，发展潜力巨大。</p>
+      </div>
+      <div class="event left">
+        <h3>海南 · 兴隆</h3>
+        <p>中国最早引入咖啡种植的地区之一，具有重要的历史意义。</p>
+      </div>
+    </div>
+
+    <h3 style="color:var(--gold);text-align:center;margin-bottom:60px;">中国代表性咖啡品牌发展</h3>
+
+    <div class="timeline">
+      <div class="event left">
+        <h3>瑞幸咖啡</h3>
+        <p>以数字化运营推动咖啡大众化消费，重塑中国咖啡市场规模。</p>
+      </div>
+      <div class="event right">
+        <h3>Manner Coffee</h3>
+        <p>以高性价比精品咖啡切入市场，代表城市精品咖啡的普及趋势。</p>
+      </div>
+      <div class="event left">
+        <h3>Seesaw Coffee</h3>
+        <p>中国精品咖啡的代表品牌之一，强调产地、烘焙与风味表达。</p>
+      </div>
+      <div class="event right">
+        <h3>三顿半</h3>
+        <p>通过创新速溶形态，让精品咖啡进入更广泛的生活场景。</p>
+      </div>
+      <div class="event left">
+        <h3>永璞咖啡</h3>
+        <p>以文化与内容驱动品牌发展，打造咖啡与生活方式的结合。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 世界咖啡文化 · 复古高级风格</footer>
+
+<script>
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  }
+</script>
+
+</body>
+</html>
